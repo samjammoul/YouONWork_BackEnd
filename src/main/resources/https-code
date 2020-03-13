@@ -1,0 +1,4 @@
+server.ssl.key-alias=https-con
+server.ssl.key-store-type=JKS
+server.ssl.key-password=password
+server.ssl.key-store=classpath:https-con.jks
