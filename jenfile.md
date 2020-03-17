@@ -3,19 +3,15 @@ pipeline {
     stages { 
         stage('Build') { 
             steps { 
-               echo 'This is a minimal pipeline.' 
+               sh 'mvn -Dmaven.test.failure.ignore=true install'
             }
         }
          stage('Test') {
             steps {
-                sh './gradlew check'
+                sh 'mvn -Dmaven.test.failure.ignore=true test'
             }
         }
     }
-    post {
-        always {
-            junit 'build/reports/**/*.xml'
-        }
-    }
+    
  
 }
