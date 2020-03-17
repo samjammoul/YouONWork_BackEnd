@@ -1,10 +1,5 @@
 pipeline { 
-   agent {
-           docker {
-               image 'samjammoul/openjdk11:jdk-11.0.2.9'
-               args '--network ci'
-           }
-       } 
+   agent any
     stages { 
         stage('Build') { 
             steps { 
