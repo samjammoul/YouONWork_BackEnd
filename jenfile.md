@@ -1,20 +1,25 @@
-pipeline {
-    agent any
-    stages {
-        stage ('Initialize') {
-            steps {
-                sh '''
-                    echo "PATH = ${PATH}"
-                    echo "M2_HOME = ${M2_HOME}"
-                '''
+pipeline { 
+   agent {
+           docker {
+               image 'samjammoul/openjdk11:jdk-11.0.2.9'
+               args '--network ci'
+           }
+       } 
+    stages { 
+        stage('Build') { 
+            steps { 
+               echo 'This is a minimal pipeline.' 
             }
         }
-
-        stage ('Build') {
+         stage('Test') {
             steps {
-                sh 'mvn -Dmaven.test.failure.ignore=true install' 
+                sh './gradlew check'
             }
-        
+        }
+    }
+    post {
+        always {
+            junit 'build/reports/**/*.xml'
         }
     }
 }
