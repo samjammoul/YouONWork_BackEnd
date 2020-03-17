@@ -18,6 +18,8 @@
 	<properties>
 		<java.version>11</java.version>
 		<maven-jar-plugin.version>3.1.1</maven-jar-plugin.version>
+        <dockerfile.version>1.4.1</dockerfile.version>
+        <docker.image.prefix>surevine</docker.image.prefix>
 	</properties>
 
     <dependencies>
@@ -80,6 +82,7 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+
 		</plugins>
 	</build>
 
