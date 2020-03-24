@@ -17,7 +17,16 @@ pipeline {
                 bat 'mvn  package' 
             }
         }
-        
+        stage('Build image') { 
+            steps {
+                bat 'docker build -f Dockerfile -t samjammoul/youonworkapi:api .' 
+            }
+        }
+        stage('Push image') { 
+            steps {
+                bat 'docker push samjammoul/youonworkapi:api' 
+            }
+        }
         
        
     }
