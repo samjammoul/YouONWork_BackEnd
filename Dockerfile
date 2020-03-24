@@ -1,4 +1,3 @@
 FROM openjdk:11
-ARG JAR_FILE=target/*.jar
-COPY ${JAR_FILE} youonworkapi.jar
-ENTRYPOINT ["java","-jar","/youonworkapi.jar"]
+ADD target/YouOnWork-0.0.1-SNAPSHOT.jar YouOnWork-0.0.1-SNAPSHOT.jar
+ENTRYPOINT ["java","-jar","/YouOnWork-0.0.1-SNAPSHOT.jar"]
