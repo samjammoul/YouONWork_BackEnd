@@ -1,5 +1,6 @@
 pipeline {
     agent any
+    def app
 
     stages {
         stage('Build') { 
@@ -18,15 +19,17 @@ pipeline {
             }
         }
         stage('Build image') { 
-            steps {
-                bat 'docker build -f Dockerfile -t samjammoul/youonworkapi:api .' 
-            }
+           app = docker.build("samjammoul/youonworkapi")
         }
-        stage('Push image') { 
-            steps {
-                bat 'docker push samjammoul/youonworkapi:api' 
-            }
+        stage('Push image') {
+        
+           docker.withRegistry('https://registry.hub.docker.com','dockerlogin')
+           
+        
+           app.push("samjammoul/youonworkapi")
+           app.push("latest")
         }
+        
         
        
     }
