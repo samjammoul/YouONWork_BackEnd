@@ -18,17 +18,7 @@ pipeline {
                 bat 'mvn  package' 
             }
         }
-        stage('Build image') { 
-           app = docker.build("samjammoul/youonworkapi")
-        }
-        stage('Push image') {
         
-           docker.withRegistry('https://registry.hub.docker.com','dockerlogin')
-           
-        
-           app.push("samjammoul/youonworkapi")
-           app.push("latest")
-        }
         
         
        
