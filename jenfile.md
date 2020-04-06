@@ -18,7 +18,11 @@ pipeline {
                 bat 'mvn  package' 
             }
         }
-        
+        stage('Package') { 
+            steps {
+                bat 'docker build -f Dockerfile -t youonwork .' 
+            }
+        }
         
         
        
