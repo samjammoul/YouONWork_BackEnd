@@ -1,30 +1,11 @@
-pipeline {
+node {
+    checkout scm
 
- agent any
+    docker.withRegistry('https://registry.hub.docker.com', 'dockerHub') {
 
-    stages {
-        stage('Build') { 
-            steps {
-                bat 'mvn clean install' 
-            }
-        }
-        stage('Test') { 
-            steps {
-                bat 'mvn test' 
-            }
-        } 
-        stage('Package') { 
-            steps {
-                bat 'mvn  package' 
-            }
-        }
-        stage('Build Docker Image') { 
-            steps {
-                bat 'docker build -t samjammoul/youonworkapi:New .' 
-            }
-        }
-        
-        
-       
+        def customImage = docker.build("samjammoul/youonworkapi")
+
+        /* Push the container to the custom Registry */
+        customImage.push()
     }
-    }
+}
