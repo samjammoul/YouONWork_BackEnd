@@ -20,7 +20,7 @@ pipeline {
         }
         stage('Build Docker Image') { 
             steps {
-                bat 'docker build -f Dockerfile -t youonwork .' 
+                bat 'docker build -t samjammoul/youonworkapi:New .' 
             }
         }
         
