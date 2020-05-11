@@ -1,13 +1,14 @@
 node {
-    def app
+   agent any
 
    
-    stage('Build image') {
-        /* This builds the actual image; synonymous to
-         * docker build on the command line */
 
-        app = docker.build("samjammoul/youonworkapi")
-    }
+    stage('Build') { 
+            steps { 
+               echo 'This is a minimal pipeline.' 
+            }
+        }
+    
 
     stage('Test image') {
         /* Ideally, we would run a test framework against our image.
