@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping(value = "/UserHandler")
 public class UserHandlerController {
 
-    @PostMapping("/SingIn")
+    @PostMapping("/")
     public void singIn(   ) {
 
     }

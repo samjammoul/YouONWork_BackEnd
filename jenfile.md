@@ -1,32 +1,30 @@
-node {
-   agent any
+pipeline {
 
-   
+ agent any
 
-    stage('Build') { 
-            steps { 
-               echo 'This is a minimal pipeline.' 
+    stages {
+        stage('Build') { 
+            steps {
+                bat 'mvn clean install' 
             }
         }
-    
-
-    stage('Test image') {
-        /* Ideally, we would run a test framework against our image.
-         * For this example, we're using a Volkswagen-type approach ;-) */
-
-        app.inside {
-            sh 'echo "Tests passed"'
+        stage('Test') { 
+            steps {
+                bat 'mvn test' 
+            }
+        } 
+        stage('Package') { 
+            steps {
+                bat 'mvn  package' 
+            }
         }
-    }
-
-    stage('Push image') {
-        /* Finally, we'll push the image with two tags:
-         * First, the incremental build number from Jenkins
-         * Second, the 'latest' tag.
-         * Pushing multiple tags is cheap, as all the layers are reused. */
-        docker.withRegistry('https://registry.hub.docker.com', 'dockerlogin') {
-            app.push("${env.BUILD_NUMBER}")
-            app.push("latest")
+        stage('Build Docker Image') { 
+            steps {
+                bat 'docker build -f Dockerfile -t youonwork .' 
+            }
         }
+        
+        
+       
     }
-}
+    }
