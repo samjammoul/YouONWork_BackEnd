@@ -1,10 +1,10 @@
 package com.example.YouOnWork.API.Controller;
 
 import com.example.YouOnWork.API.Controller.Exptions.ExceptionHandler;
-import com.example.YouOnWork.API.Model.JwtUser;
-import com.example.YouOnWork.API.Configuration.Security.TokenUtil;
+import com.example.YouOnWork.API.Controller.Interfaces.IJwtUserService;
 import com.example.YouOnWork.API.Request.SingUpRequest;
 import com.example.YouOnWork.API.Service.UserService;
+import com.example.YouOnWork.config.JwtTokenUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
@@ -23,7 +23,7 @@ public class UserRestController {
     private String tokenHeader;
 
     @Autowired
-    private TokenUtil jwtTokenUtil;
+    private JwtTokenUtil jwtTokenUtil;
 
     @Autowired
     @Qualifier("jwtUserDetailsService")
@@ -38,6 +38,7 @@ public class UserRestController {
 // لسا في خطا عملا رن وبحاث عن الخطـ
     @RequestMapping(value = "/SignUp",method = RequestMethod.POST)
     public ResponseEntity singUp(@RequestBody SingUpRequest request) throws ExceptionHandler {
+        /*
         try {
            if(request.getPassword().equals(request.getConformPassword())){
                UserService.save(request.getUsername(),request.getPassword());
@@ -51,6 +52,8 @@ public class UserRestController {
             return ResponseEntity.ok(HttpStatus.BAD_REQUEST);
 
         }
+
+         */
 
         return ResponseEntity.ok(HttpStatus.OK);
 

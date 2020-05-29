@@ -1,9 +1,10 @@
 package com.example.YouOnWork.API.Service;
 
-import com.example.YouOnWork.API.Controller.IJwtUserService;
+import com.example.YouOnWork.API.Controller.Interfaces.IJwtUserService;
 import com.example.YouOnWork.API.Dal.JwtUserRepo;
 import com.example.YouOnWork.API.Model.JwtUser;
 
+import com.example.YouOnWork.API.Service.Factory.UserFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -36,7 +37,7 @@ public class JwtUserService implements IJwtUserService {
     public JwtUser findByUsername(String username) {
 
       //  new JwtUser("sam",passwordEncoder().encode("sam"))
-        return jwtUserRepo.findByUsername(username) ;
+        return jwtUserRepo.findByUsername(username);
     }
 
     @Override

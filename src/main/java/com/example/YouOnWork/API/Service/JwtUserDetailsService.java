@@ -1,6 +1,7 @@
 package com.example.YouOnWork.API.Service;
 
 import com.example.YouOnWork.API.Model.JwtUser;
+import com.example.YouOnWork.API.Service.Factory.JwtUserFactory;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
