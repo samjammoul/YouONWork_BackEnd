@@ -3,7 +3,6 @@ package com.example.YouOnWork.API.Controller;
 import com.example.YouOnWork.API.Controller.Exptions.ExceptionHandler;
 import com.example.YouOnWork.API.Controller.Interfaces.IJwtUserService;
 import com.example.YouOnWork.API.Request.SingUpRequest;
-import com.example.YouOnWork.API.Service.UserService;
 import com.example.YouOnWork.config.JwtTokenUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -31,8 +30,7 @@ public class UserRestController {
 
     @Autowired
     private IJwtUserService iJwtUserService;
-    @Autowired
-    private UserService UserService;
+
 
 
 // لسا في خطا عملا رن وبحاث عن الخطـ

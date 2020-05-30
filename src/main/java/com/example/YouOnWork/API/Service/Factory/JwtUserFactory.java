@@ -1,6 +1,6 @@
 package com.example.YouOnWork.API.Service.Factory;
 
-import com.example.YouOnWork.API.Model.JwtUser;
+import com.example.YouOnWork.API.Model.User;
 
 
 public final class JwtUserFactory {
@@ -8,13 +8,15 @@ public final class JwtUserFactory {
     private JwtUserFactory() {
     }
 
-    public static JwtUser create(JwtUser user) {
-        return new JwtUser(
-                user.getId(),
+    public static User create(User user) {
+        return new User(
+               user.getId(),
                 user.getUsername(),
                 user.getPassword()
         );
     }
 
-
+    public static User create(String username, String password) {
+        return new User(username,password);
+    }
 }

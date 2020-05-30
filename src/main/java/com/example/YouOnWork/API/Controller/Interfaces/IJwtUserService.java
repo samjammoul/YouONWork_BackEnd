@@ -4,5 +4,7 @@ package com.example.YouOnWork.API.Controller.Interfaces;
 
 public interface IJwtUserService {
 
-    void save(String username, String password);
+    int findUserById(int userId);
+    int getUserId(String userName);
+    void addUser(String userName, String password);
 }

@@ -1,6 +1,6 @@
 server:
   port: 8085
-database:
-  url: jdbc:mysql://studmysql01.fhict.local:3306/dbi401070
-  username: dbi401070
-  password: salam-SOSO-123
+  database:
+  url: jdbc:mysql://localhost:3306/youonworkdb
+  username: root
+  password: toor

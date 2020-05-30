@@ -1,14 +1,9 @@
 package com.example.YouOnWork.API.Controller;
 
-import com.example.YouOnWork.API.Controller.Interfaces.IStatusService;
-import com.example.YouOnWork.API.Controller.Interfaces.ITaskService;
-import com.example.YouOnWork.API.Controller.Interfaces.ITeamService;
-import com.example.YouOnWork.API.Controller.Interfaces.IUserService;
+import com.example.YouOnWork.API.Controller.Interfaces.*;
 import com.example.YouOnWork.API.Model.Response.StatusListResponse;
-import com.example.YouOnWork.API.Model.Status;
 import com.example.YouOnWork.API.Model.Team;
 import com.example.YouOnWork.API.Request.*;
-import com.example.YouOnWork.API.Service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -26,7 +21,7 @@ public class TeamHandlerController {
     private ITeamService teamService;
 
     @Autowired
-    private IUserService userService;
+    private IJwtUserService userService;
 
     @Autowired
     private IStatusService statusService;

@@ -1,7 +1,5 @@
 package com.example.YouOnWork.API.Request;
 
-import com.example.YouOnWork.API.Model.User;
-
 public class CreateTeamRequest {
 
     private String teamName;
