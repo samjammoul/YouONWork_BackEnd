@@ -9,4 +9,6 @@ public interface ITeamService {
     void addNewTeam(String teamName,int adminId );
 
     List<Team> getAllTeams(int userId);
+
+    void deleteTeam(int teamId);
 }

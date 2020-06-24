@@ -49,18 +49,17 @@ public class TaskService implements ITaskService {
     }
 
     public void deleteTask(int taskId ){
-        /*
+
         try {
 
-         */
         Task task = taskRepo.findTaskById(taskId);
         taskRepo.delete(task);
 
-            /*
+
         }catch (Exception ex){
 
         }
 
-             */
+
     }
 }

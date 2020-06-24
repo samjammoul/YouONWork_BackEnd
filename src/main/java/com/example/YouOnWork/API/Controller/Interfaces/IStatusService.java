@@ -9,4 +9,5 @@ public interface IStatusService {
 
     void addNewStatus(String statusText,int groupId );
     List<StatusListResponse> getAllStatus(int teamId);
+    void deleteStatus(int statusId);
 }

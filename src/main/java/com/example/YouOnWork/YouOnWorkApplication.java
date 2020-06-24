@@ -12,10 +12,5 @@ public class YouOnWorkApplication {
 		SpringApplication.run(YouOnWorkApplication.class, args);
 	}
 
-	@GetMapping("/greeting-javaconfig")
-	public User greetingWithJavaconfig(@RequestParam(required=false, defaultValue="World") String name) {
-		System.out.println("==== in greeting ====");
-		return new User("s1","s2");
-	}
 
 }

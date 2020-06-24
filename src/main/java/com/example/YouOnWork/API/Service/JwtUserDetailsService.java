@@ -1,6 +1,6 @@
 package com.example.YouOnWork.API.Service;
 
-import com.example.YouOnWork.API.Model.JwtUser;
+import com.example.YouOnWork.API.Model.User;
 import com.example.YouOnWork.API.Service.Factory.JwtUserFactory;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -11,15 +11,15 @@ import org.springframework.stereotype.Service;
 @Service
 public class JwtUserDetailsService implements UserDetailsService {
 
-    private JwtUserService jwtUserService;
+    private UserService userService;
 
-    public JwtUserDetailsService(JwtUserService jwtUserService) {
-        this.jwtUserService = jwtUserService;
+    public JwtUserDetailsService(UserService userService) {
+        this.userService = userService;
     }
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        JwtUser user = jwtUserService.findByUsername(username);
+        User user = userService.findByUsername(username);
 
         if (user == null) {
             throw new UsernameNotFoundException(String.format("No user found with username '%s'.", username));

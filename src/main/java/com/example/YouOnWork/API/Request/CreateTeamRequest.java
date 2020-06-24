@@ -1,15 +1,15 @@
 package com.example.YouOnWork.API.Request;
 
-import com.example.YouOnWork.API.Model.User;
-
 public class CreateTeamRequest {
 
     private String teamName;
-    private int adminId;
 
-    public CreateTeamRequest(String teamName, int adminId) {
+    public CreateTeamRequest(String teamName) {
         this.teamName = teamName;
-        this.adminId = adminId;
+    }
+
+    public CreateTeamRequest( ) {
+
     }
 
     public String getTeamName() {
@@ -20,11 +20,4 @@ public class CreateTeamRequest {
         this.teamName = teamName;
     }
 
-    public int getAdminId() {
-        return adminId;
-    }
-
-    public void setAdminId(int adminId) {
-        this.adminId = adminId;
-    }
 }

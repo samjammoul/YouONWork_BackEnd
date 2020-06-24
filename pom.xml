@@ -92,11 +92,12 @@
                         <version>2.2.4.RELEASE</version>
                         <configuration>
                             <profiles>
-                                <profile>dev</profile>
+                                <profile>pro</profile>
                             </profiles>
                         </configuration>
 
                     </plugin>
+
 
                 </plugins>
 

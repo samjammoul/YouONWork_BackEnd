@@ -21,6 +21,11 @@ public class Team {
 
     }
 
+    public Team(int teamId, String teamName, int adminId) {
+        this.teamId = teamId;
+        this.teamName = teamName;
+        this.adminId = adminId;
+    }
 
 
     @Id

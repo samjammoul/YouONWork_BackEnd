@@ -1,9 +1,10 @@
 package com.example.YouOnWork.API.Controller;
 
 import com.example.YouOnWork.API.Configuration.Security.JwtResponse;
+import com.example.YouOnWork.API.Controller.Interfaces.IJwtUserService;
 import com.example.YouOnWork.API.Model.Requests.JwtRequest;
 import com.example.YouOnWork.API.Controller.Exptions.AuthenticationException;
-import com.example.YouOnWork.API.Controller.Interfaces.IUserService;
+
 import com.example.YouOnWork.config.JwtTokenUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -33,16 +34,17 @@ public class AuthenticationRestController {
     private JwtTokenUtil tokenUtil;
 
     @Autowired
-    private IUserService userService;
+    private IJwtUserService userService;
+
 
     @Autowired
     @Qualifier("jwtUserDetailsService")
     private UserDetailsService userDetailsService;
 
     @RequestMapping(value = "/SignIn", method = RequestMethod.POST)
-    public ResponseEntity<?> createAuthenticationToken(@RequestBody JwtRequest authenticationRequest
-
-    ) throws AuthenticationException {
+    public ResponseEntity<?> createAuthenticationToken(@RequestBody JwtRequest authenticationRequest)
+            throws AuthenticationException
+    {
 
         authenticate(authenticationRequest.getUsername(), authenticationRequest.getPassword());
         System.out.println(authenticationRequest.getUsername());
@@ -56,24 +58,13 @@ public class AuthenticationRestController {
         return ResponseEntity.ok(new JwtResponse(token));
 
     }
-    /*
-    @RequestMapping(value = "/SingIn2", method = RequestMethod.POST)
-    public String createAuthenticationToken(@RequestBody String username) throws AuthenticationException {
-
-        // Return the token
-        return username ;
-    }
-
-     */
 
     @RequestMapping(value = "/test",method =RequestMethod.GET)
     public String sayHello(){
+
+       this.userService.addUser("sam","sam");
         return "Hey there";
     }
-
-
-
-
 
     /**
      * Authenticates the user. If something is wrong, an {@link AuthenticationException} will be thrown

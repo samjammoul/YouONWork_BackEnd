@@ -89,4 +89,8 @@ public class StatusService implements IStatusService {
         return statusListResponses;
 
     }
+    public void deleteStatus(int statusId){
+         Status status = statusRepo.findStatusById(statusId);
+         statusRepo.delete(status);
+    }
 }

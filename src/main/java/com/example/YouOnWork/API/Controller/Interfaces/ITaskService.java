@@ -6,4 +6,6 @@ public interface ITaskService {
     void changeTaskStatus(int taskId,int statusId );
 
     void deleteTask(int taskId );
+
+
 }

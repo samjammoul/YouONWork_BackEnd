@@ -12,11 +12,18 @@ public class TeamUser {
     public TeamUser() {
     }
 
+    public TeamUser( int teamId, int userId) {
+
+        this.teamId = teamId;
+        this.userId = userId;
+    }
+
     public TeamUser(int id, int teamId, int userId) {
         this.id = id;
         this.teamId = teamId;
         this.userId = userId;
     }
+
 
     @Id
     @Column(name = "id")
